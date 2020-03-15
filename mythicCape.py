@@ -10,7 +10,7 @@ import decimal
 
 # initialize HumanClicker object
 hc = HumanClicker()
-iterations = 999 # how many times the script should loop and make a cape
+iterations = 93 # how many times the script should loop and make 8 cape mounts
 for i in range(iterations):
         for i in range(8):
                 xpos = random.randrange(-50,20,1)
@@ -38,11 +38,13 @@ for i in range(iterations):
                         time.sleep(float(random.randrange(52, 120))/100)
         hc.move((1831+xSettings, 1016+ySettings, 1))
         hc.click()
-        hc.move((1823+xSettings, 981+ySettings, 1))
+        hc.move((1823+xSettings, 975+random.randrange(0,3,1), 1))
         hc.click()
-        time.sleep(1)
+        time.sleep(2)
         hc.click()
-        time.sleep(1)
+        time.sleep(2)
+        pyautogui.press('1')
+        time.sleep(float(random.randrange(52, 120))/100)
         pyautogui.press('1')
         time.sleep(7+random.randrange(0,2,1))
 
