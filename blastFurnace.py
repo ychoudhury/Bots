@@ -9,9 +9,10 @@ hc = HumanClicker()
 iterations = 10 # how many times the script should loop
 
 def cursorTime():
-    return float(random.randrange(50, 100))/150
+    return(random.randrange(50, 100))/150
     
 def withdrawCoal():
+    checkStamina()
     hc.move((coalHor,coalVer), cursorTime)
     hc.click()
     time.sleep(float(random.randrange(52, 100))/100) # sleep enough to allow ore to withdraw
@@ -66,6 +67,43 @@ def withdrawBars():
     hc.move((depositBarsHor,depositBarsVer), cursorTime)
     hc.click()
     time.sleep(5)
+
+def checkStamina():
+    if(pyautogui.pixelMatchesColor(1752, 145, (19, 19, 19))) == True:
+        drinkStamina()
+
+def drinkStamina():
+    bankStaminaHor = random.randrange(936, 959,1) # stamina potion bank item
+    bankStaminaVer = random.randrange(343, 369,1)
+
+    drinkStaminaHor = random.randrange(1765, 1783,1)
+    drinkStaminaVer = random.randrange(750, 776,1)
+
+    oneHor = random.randrange(798, 818,1)
+    oneVer = random.randrange(823, 836,1)
+
+    allHor = random.randrange(899, 914,1)
+    allVer = random.randrange(825, 838,1)
+
+    hc.move((oneHor,oneVer), cursorTime)
+    hc.click()
+    hc.move((bankStaminaHor,bankStaminaVer), cursorTime)
+    hc.click()
+    time.sleep(cursorTime)
+    pyautogui.press('esc')
+    hc.move((drinkStaminaHor,drinkStaminaVer), cursorTime)
+    hc.click()
+    hc.move((startHor,startVer), cursorTime)
+    hc.click()
+    hc.move((allHor,allVer), cursorTime)
+    hc.click()
+
+
+startHor = random.randrange(951,970,1) # starting bank chest coordinates
+startVer = random.randrange(555,571,1)
+cursorTime = float(random.randrange(50, 100))/150
+hc.move((startHor,startVer), cursorTime) # initialize bank chest open
+hc.click()
     
 for i in range(iterations):
     # establish random times to avoid bot detection
@@ -97,14 +135,12 @@ for i in range(iterations):
     dispenserVer = random.randrange(649,675,1)
 
     depositBarsHor = random.randrange(1271,1297,1)
-    depositBarsVer = random.randrange(797,833,1)
+    depositBarsVer = random.randrange(820,833,1)
 
     inventoryBarHor = random.randrange(1769,1787,1)
     inventoryBarVer = random.randrange(750,765,1)
 
     # main sequence
-    hc.move((startHor,startVer), cursorTime)
-    hc.click()
     withdrawCoal()
     depositOre()
     withdrawAdamantite()
