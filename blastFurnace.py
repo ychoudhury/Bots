@@ -6,65 +6,62 @@ import decimal
 
 # initialize HumanClicker object
 hc = HumanClicker()
-iterations = 10 # how many times the script should loop
+iterations = 20 # how many times the script should loop
 
-def cursorTime():
-    return(random.randrange(50, 100))/150
-    
 def withdrawCoal():
     checkStamina()
-    hc.move((coalHor,coalVer), cursorTime)
+    hc.move((coalHor,coalVer), (float(random.randrange(50, 100))/400))
     hc.click()
     time.sleep(float(random.randrange(52, 100))/100) # sleep enough to allow ore to withdraw
     pyautogui.press('esc')
-    hc.move((coalbagHor,coalbagVer), cursorTime)
+    hc.move((coalbagHor,coalbagVer), (float(random.randrange(50, 100))/400))
     hc.click()
-    hc.move((startHor,startVer), cursorTime)
+    hc.move((startHor,startVer), (float(random.randrange(50, 100))/400))
     hc.click()
-    hc.move((coalHor,coalVer), cursorTime)
+    hc.move((coalHor,coalVer), (float(random.randrange(50, 100))/400))
     hc.click()
     time.sleep(float(random.randrange(52, 100))/100) # sleep enough to allow ore to withdraw
     pyautogui.press('esc')
 
 def withdrawAdamantite():
-    hc.move((bankHor,bankVer), cursorTime)
+    hc.move((bankHor,bankVer), (float(random.randrange(50, 100))/400))
     hc.click()
     time.sleep(5)
-    hc.move((coalHor,coalVer), cursorTime)
+    hc.move((coalHor,coalVer), (float(random.randrange(50, 100))/400))
     hc.click()
     time.sleep(float(random.randrange(52, 100))/100) # sleep enough to allow ore to withdraw
     pyautogui.press('esc')
-    hc.move((coalbagHor,coalbagVer), cursorTime)
+    hc.move((coalbagHor,coalbagVer), (float(random.randrange(50, 100))/400))
     hc.click()
-    hc.move((startHor,startVer), cursorTime)
+    hc.move((startHor,startVer), (float(random.randrange(50, 100))/400))
     hc.click()
-    hc.move((adamantiteHor,adamantiteVer), cursorTime)
+    hc.move((adamantiteHor,adamantiteVer), (float(random.randrange(50, 100))/400))
     hc.click()
     time.sleep(float(random.randrange(52, 100))/100) # sleep enough to allow ore to withdraw
     pyautogui.press('esc')
 
 def depositOre():
-    hc.move((boxHor,boxVer), cursorTime)
+    hc.move((boxHor,boxVer), (float(random.randrange(50, 100))/400))
     hc.click()
     time.sleep(6)
     pyautogui.keyDown('shift');
     coalHor = random.randrange(842,868,1) # generate new random coordinates to avoid bot detection
     coalVer = random.randrange(343,367,1)
-    hc.move((coalbagHor,coalbagVer), cursorTime)
+    hc.move((coalbagHor,coalbagVer), (float(random.randrange(50, 100))/400))
     time.sleep(1)
     hc.click()
     time.sleep(1)
     pyautogui.keyUp('shift');
-    hc.move((rampTopHor,rampTopVer), cursorTime)
+    hc.move((rampTopHor,rampTopVer), (float(random.randrange(50, 100))/400))
     hc.click()
 
 def withdrawBars():
-    hc.move((dispenserHor,dispenserVer), cursorTime)
+    hc.move((dispenserHor,dispenserVer), (float(random.randrange(50, 100))/400))
     time.sleep(2)
     hc.click()
     time.sleep(4)
     pyautogui.press('space')
-    hc.move((depositBarsHor,depositBarsVer), cursorTime)
+    hc.move((depositBarsHor,depositBarsVer), (float(random.randrange(50, 100))/400))
     hc.click()
     time.sleep(5)
 
@@ -85,29 +82,25 @@ def drinkStamina():
     allHor = random.randrange(899, 914,1)
     allVer = random.randrange(825, 838,1)
 
-    hc.move((oneHor,oneVer), cursorTime)
+    hc.move((oneHor,oneVer), (float(random.randrange(50, 100))/400))
     hc.click()
-    hc.move((bankStaminaHor,bankStaminaVer), cursorTime)
+    hc.move((bankStaminaHor,bankStaminaVer), (float(random.randrange(50, 100))/400))
     hc.click()
-    time.sleep(cursorTime)
+    hc.move((allHor,allVer), (float(random.randrange(50, 100))/400))
+    hc.click()
+    time.sleep((float(random.randrange(50, 100))/400))
     pyautogui.press('esc')
-    hc.move((drinkStaminaHor,drinkStaminaVer), cursorTime)
+    hc.move((drinkStaminaHor,drinkStaminaVer), (float(random.randrange(50, 100))/400))
     hc.click()
-    hc.move((startHor,startVer), cursorTime)
+    hc.move((startHor,startVer), (float(random.randrange(50, 100))/400))
     hc.click()
-    hc.move((allHor,allVer), cursorTime)
-    hc.click()
-
 
 startHor = random.randrange(951,970,1) # starting bank chest coordinates
 startVer = random.randrange(555,571,1)
-cursorTime = float(random.randrange(50, 100))/150
-hc.move((startHor,startVer), cursorTime) # initialize bank chest open
+hc.move((startHor,startVer), (float(random.randrange(50, 100))/400)) # initialize bank chest open
 hc.click()
     
 for i in range(iterations):
-    # establish random times to avoid bot detection
-    cursorTime = float(random.randrange(50, 100))/150
     
     # establish random coordinates to avoid bot detection
     startHor = random.randrange(951,970,1) # starting bank chest coordinates
@@ -146,7 +139,7 @@ for i in range(iterations):
     withdrawAdamantite()
     depositOre()
     withdrawBars()
-    hc.move((inventoryBarHor,inventoryBarVer), cursorTime)
+    hc.move((inventoryBarHor,inventoryBarVer), (float(random.randrange(50, 100))/400))
     hc.click()
     
 
