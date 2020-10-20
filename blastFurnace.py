@@ -3,33 +3,35 @@ import pyautogui
 import random
 import time
 import decimal
+import math
 
 # initialize HumanClicker object
 hc = HumanClicker()
-iterations = 20 # how many times the script should loop
+barCount = 2000 # input how many bars you would like to process
+iterations = math.floor(barCount/81) # 81 coal per loop iteration
 
 def withdrawCoal():
     checkStamina()
-    hc.move(((random.randrange(842,868,1)),(random.randrange(343,367,1))), (float(random.randrange(50, 100))/400))
+    hc.move(((random.randrange(842,868,1)),(random.randrange(343,367,1))), (float(random.randrange(60, 100))/400))
     hc.click()
-    time.sleep(float(random.randrange(52, 100))/100) # sleep enough to allow ore to withdraw
+    time.sleep(float(random.randrange(52, 100))/100)
     pyautogui.press('esc')
     hc.move(((random.randrange(1722,1743,1)),(random.randrange(752, 775,1))), (float(random.randrange(50, 100))/400))
     hc.click()
     hc.move(((random.randrange(951,970,1)),(random.randrange(555,571,1))), (float(random.randrange(50, 100))/400))
     hc.click()
-    hc.move(((random.randrange(842,868,1)),(random.randrange(343,367,1))), (float(random.randrange(50, 100))/400))
+    hc.move(((random.randrange(842,868,1)),(random.randrange(343,367,1))), (float(random.randrange(60, 100))/400))
     hc.click()
-    time.sleep(float(random.randrange(52, 100))/100) # sleep enough to allow ore to withdraw
+    time.sleep(float(random.randrange(52, 100))/100)
     pyautogui.press('esc')
 
 def withdrawAdamantite():
     hc.move(((random.randrange(1178,1204,1)),(random.randrange(915,958,1))), (float(random.randrange(50, 100))/400))
     hc.click()
-    time.sleep(5)
+    time.sleep(float(random.randrange(450,550))/100)
     hc.move(((random.randrange(842,868,1)),(random.randrange(343,367,1))), (float(random.randrange(50, 100))/400))
     hc.click()
-    time.sleep(float(random.randrange(52, 100))/100) # sleep enough to allow ore to withdraw
+    time.sleep(float(random.randrange(52, 100))/100)
     pyautogui.press('esc')
     hc.move(((random.randrange(1722,1743,1)),(random.randrange(752, 775,1))), (float(random.randrange(50, 100))/400))
     hc.click()
@@ -37,31 +39,31 @@ def withdrawAdamantite():
     hc.click()
     hc.move(((random.randrange(890,914,1)),(random.randrange(345,369,1))), (float(random.randrange(50, 100))/400))
     hc.click()
-    time.sleep(float(random.randrange(52, 100))/100) # sleep enough to allow ore to withdraw
+    time.sleep(float(random.randrange(52, 100))/100)
     pyautogui.press('esc')
 
 def depositOre():
     hc.move(((random.randrange(810,825,1)),(random.randrange(239,274,1))), (float(random.randrange(50, 100))/400))
     hc.click()
-    time.sleep(6)
+    time.sleep(float(random.randrange(500,600))/100)
     pyautogui.keyDown('shift')
     hc.move(((random.randrange(1722,1743,1)),(random.randrange(752, 775,1))), (float(random.randrange(50, 100))/400))
-    time.sleep(1)
+    time.sleep(float(random.randrange(50,100))/100) #time.sleep 1 second
     hc.click()
-    time.sleep(1)
+    time.sleep(float(random.randrange(50,100))/100) #time.sleep 1 second
     pyautogui.keyUp('shift')
     hc.move(((random.randrange(982,1004,1)),(random.randrange(509,548,1))), (float(random.randrange(50, 100))/400))
     hc.click()
 
 def withdrawBars():
-    hc.move(((random.randrange(879,914,1)),(random.randrange(649,675,1))), (float(random.randrange(50, 100))/400))
-    time.sleep(2)
+    hc.move(((random.randrange(879,914,1)),(random.randrange(649,675,1))), (float(random.randrange(50, 90))/400))
+    time.sleep(float(random.randrange(100,200))/100) #time.sleep 1 second
     hc.click()
-    time.sleep(4)
+    time.sleep(float(random.randrange(500,520))/100) # time to wait before withdrawing all bars
     pyautogui.press('space')
     hc.move(((random.randrange(1271,1297,1)),(random.randrange(820,833,1))), (float(random.randrange(50, 100))/400))
     hc.click()
-    time.sleep(5)
+    time.sleep(float(random.randrange(450,550))/100)
 
 def checkStamina():
     if(pyautogui.pixelMatchesColor(1752, 145, (19, 19, 19))) == True:
